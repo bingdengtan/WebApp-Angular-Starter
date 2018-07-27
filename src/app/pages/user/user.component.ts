@@ -63,7 +63,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    window.dispatchEvent(new Event('resize'));
+    this.coreUtils.resizeWindow();
     this.initGrid();
     this.initRoles();
   }

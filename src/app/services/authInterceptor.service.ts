@@ -29,7 +29,7 @@ export class AuthInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let requestToForward = req;
         const tokenValue = 'Bearer ' + this.oauthService.getAccessToken();
-        requestToForward = req.clone({ setHeaders: { 'Authorization': tokenValue} });
+        requestToForward = req.clone({ setHeaders: { 'Authorization': tokenValue, 'Accept': '*/*'} });
 
         return next.handle(requestToForward).catch( err => this.handleAuthError(err));
     }

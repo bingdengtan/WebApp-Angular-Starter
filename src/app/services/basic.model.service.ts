@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
 
 import { CoreUtils, IPager } from '../utils/core.utils';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Injectable()
 export class BasicModelService {
@@ -39,7 +40,7 @@ export class BasicModelService {
 
   async delete(id: string): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.http.delete(this.restUrl + id, {})
+      this.http.delete(this.restUrl + id + '/', {})
         .toPromise()
         .then( response => {
           resolve(response);

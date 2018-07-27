@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import * as moment from 'moment';
+declare var $: any;
 
 export interface IPager {
     pageNumber: number;
@@ -38,5 +39,14 @@ export class CoreUtils {
           url += '&' + k + '=' + encodeURI(query[k]);
         });
         return url;
+    }
+
+    resizeWindow(): void {
+        const isIEOrEdge = /msie\s|trident\/|edge\//i.test(window.navigator.userAgent);
+        if (isIEOrEdge) {
+            $(window).trigger('resize');
+        } else {
+            window.dispatchEvent(new Event('resize'));
+        }
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoreUtils } from '../../utils/core.utils';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public coreUtils: CoreUtils) { }
 
   ngOnInit() {
-    window.dispatchEvent(new Event('resize'));
+    this.coreUtils.resizeWindow();
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 import { UserService } from '../../services/user.service';
 import { RoleService } from '../../services/role.service';
@@ -42,13 +43,14 @@ export class RoleComponent implements OnInit {
   constructor(public coreUtils: CoreUtils,
     public modelService: RoleService,
     private toastr: ToastrService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private oauthService: OAuthService
   ) {
     this.confirmDialogTitle = 'Roles Management';
   }
 
   ngOnInit() {
-    window.dispatchEvent(new Event('resize'));
+    this.coreUtils.resizeWindow();
     this.initGrid();
   }
 
