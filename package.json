@@ -22,7 +22,7 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
-    "admin-lte": "^2.3.11",
+    "admin-lte": "2.3.11",
     "agenda": "^1.0.3",
     "ajv": "^6.5.0",
     "angular-oauth2-oidc": "^4.0.2",

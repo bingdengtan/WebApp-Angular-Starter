@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   api: 'http://localhost:8000/api/',
   oidc: {
-    issuer: 'http://localhost:5555',
+    issuer: 'http://agave.jehl.internal',
     redirectUri: 'http://localhost:4200/#/dashboard/home?',
     clientId: 'jeIdentityServerDev',
     scope: 'openid profile',
