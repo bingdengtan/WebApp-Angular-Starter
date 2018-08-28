@@ -15,7 +15,7 @@ interface IUser {
   username: string;
   email: string;
   id: null;
-  roles: Array<string>;
+  roles: Array<any>;
   creation_date: null;
   created_by: string;
   last_updated_date: null;
@@ -160,7 +160,7 @@ export class UserComponent implements OnInit {
         role.checked = false;
       }
     } else {
-      const roleIds = this.user.roles.map(x => '' + x);
+      const roleIds = this.user.roles.map(x => x.id);
       for (const role of roleObjects) {
         role.checked = roleIds.indexOf(role.value) > -1;
       }
@@ -177,8 +177,7 @@ export class UserComponent implements OnInit {
 
   getRolesFormat(row, val): String {
     if (val.length > 0) {
-      const roles = this.roles.filter( (role) => val.indexOf(role.id) >= 0);
-      return roles.map( role => role.role_name).join(', ');
+      return val.map( role => role.role_name).join(', ');
     }
     return '';
   }

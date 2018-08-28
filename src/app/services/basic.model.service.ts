@@ -64,4 +64,17 @@ export class BasicModelService {
         });
     });
   }
+
+  get(id: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.restUrl + id + '/')
+        .toPromise()
+        .then( response => {
+          resolve(response);
+        })
+        .catch(e => {
+          reject(e);
+        });
+    });
+  }
 }

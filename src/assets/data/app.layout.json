@@ -3,14 +3,14 @@
         {
           "header":"Navigator",
           "items":[
-            {"title":"Home", "path":"dashboard/home", "description":"Clients", "icon":"fa fa-home"}
+            {"title":"Home", "path":"dashboard/home", "description":"Clients", "icon":"fa fa-home", "canActivateByRoles": ["*"]}
           ]
         },
         {
           "header":"Administrator",
           "items":[
-            {"title":"Roles Management", "path":"dashboard/adm/roles", "description":"Roles Management", "icon":"fa fa-credit-card"},
-            {"title":"Users Management", "path":"dashboard/adm/users", "description":"Users Management", "icon":"fa fa-users"}
+            {"title":"Roles Management", "path":"dashboard/adm/roles", "description":"Roles Management", "icon":"fa fa-credit-card", "canActivateByRoles": ["ROLE_ADMIN"]},
+            {"title":"Users Management", "path":"dashboard/adm/users", "description":"Users Management", "icon":"fa fa-users", "canActivateByRoles": ["ROLE_ADMIN"]}
           ]
         }
     ]

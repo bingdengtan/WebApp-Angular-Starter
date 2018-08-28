@@ -40,7 +40,8 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
-                  <a class="btn btn-default btn-flat" (click)="logout()">Sign out</a>
+                  <a class="btn btn-default btn-flat" *ngIf="username !== 'Anonymous'" (click)="logout()">Sign out</a>
+                  <a class="btn btn-default btn-flat" *ngIf="username === 'Anonymous'" (click)="login()">Sign in</a>
                 </div>
               </li>
             </ul>

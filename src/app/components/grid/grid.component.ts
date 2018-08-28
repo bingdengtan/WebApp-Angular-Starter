@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import 'rxjs/Rx';
 import { forEach } from '@angular/router/src/utils/collection';
 import { encode } from 'punycode';
+import { ToastrService } from 'ngx-toastr';
 
 declare var Pace: any;
 // declare var jquery: any;
@@ -70,7 +71,8 @@ export class GridComponent implements OnInit {
   searchTerm: FormControl;
   loading = false;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,
+    private toastr: ToastrService) {
     this.searchTerm = new FormControl();
   }
 
@@ -85,7 +87,7 @@ export class GridComponent implements OnInit {
     let obj = JSON.parse(JSON.stringify(row));
     let val = '';
     for (let i = 0; i < fieldsLoop.length; i++) {
-      if (obj[fieldsLoop[i]]) {
+      if (obj[fieldsLoop[i]] !== undefined) {
         val = obj[fieldsLoop[i]];
         obj = val;
       } else {
@@ -133,7 +135,10 @@ export class GridComponent implements OnInit {
       })
       .catch(e => {
         this.loading = false;
-        console.log(e);
+        if (e.status !== 401 && e.status !== 403) {
+          this.toastr.error(e.message, 'Load Grid Failed');
+          console.log(e);
+        }
       });
   }
 

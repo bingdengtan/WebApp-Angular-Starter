@@ -1,6 +1,7 @@
 <aside class="main-sidebar">
   <!-- sidebar: style can be found in sidebar.less -->
-  <section class="sidebar">  
+  <i class="fa fa-cog fa-spin fa-2x fa-fw text-primary" *ngIf="loading" ></i>
+  <section class="sidebar" *ngIf="!loading">  
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu" *ngFor="let menu of menus" style="margin-bottom:20px;">
       <li class="header">{{menu.header}}</li>

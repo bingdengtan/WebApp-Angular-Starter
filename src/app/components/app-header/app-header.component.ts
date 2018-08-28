@@ -11,7 +11,7 @@ import { OAuthService } from 'angular-oauth2-oidc';
   styleUrls: ['./app-header.component.scss']
 })
 export class AppHeaderComponent implements OnInit {
-  username = '';
+  username = 'Anonymous';
   email = '';
   location = '';
   title = '';
@@ -42,5 +42,12 @@ export class AppHeaderComponent implements OnInit {
 
   logout(): void {
     this.oauthService.logOut();
+  }
+
+  login(): void {
+    if (!this.oauthService.getAccessToken()) {
+      this.oauthService.logOut();
+    }
+    this.oauthService.initImplicitFlow();
   }
 }
