@@ -11,7 +11,7 @@ import { CoreService } from './services/core.service';
 
 import { AuthService } from './services/auth.service';
 import { EventsService } from './services/events.service';
-import { Output } from '@angular/core/src/metadata/directives';
+import { MenuService } from './services/menu.service';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +27,8 @@ export class AppComponent implements OnInit  {
         private eventsService: EventsService,
         private titleService: Title,
         private coreService: CoreService,
-        private oauthService: OAuthService
+        private oauthService: OAuthService,
+        private menuService: MenuService
     ) {
         this.configureWithNewConfigApi();
     }
@@ -38,6 +39,7 @@ export class AppComponent implements OnInit  {
 
     private configureWithNewConfigApi() {
         this.oauthService.configure(authConfig);
+        this.oauthService.setStorage(localStorage);
         this.oauthService.tokenValidationHandler = new JwksValidationHandler();
         this.oauthService.loadDiscoveryDocumentAndTryLogin();
     }

@@ -22,8 +22,8 @@ import { UserComponent } from './pages/user/user.component';
       { path: 'dashboard', component: DashboardComponent,
         children: [
           { path: 'home', component: HomeComponent},
-          { path: 'adm/roles', component: RoleComponent},
-          { path: 'adm/users', component: UserComponent}
+          { path: 'adm/roles', component: RoleComponent, canActivate: [AuthorizationGuard]},
+          { path: 'adm/users', component: UserComponent, canActivate: [AuthorizationGuard]}
         ]
       }
     ])

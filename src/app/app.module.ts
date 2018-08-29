@@ -26,6 +26,7 @@ import { UserComponent } from './pages/user/user.component';
 import { GridComponent } from './components/grid/grid.component';
 
 import { AuthService } from './services/auth.service';
+import { MenuService } from './services/menu.service';
 import { BasicModelService } from './services/basic.model.service';
 import { UserService } from './services/user.service';
 import { RoleService } from './services/role.service';
@@ -70,6 +71,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     RoleService,
     AuthorizationGuard,
     UserService,
+    MenuService,
     CoreUtils,
     EventsService,
     {
